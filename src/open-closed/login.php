@@ -14,24 +14,30 @@
 
 
     // FOLLOWING OCP
-    interface LoginInterface {
+    interface LoginInterface 
+    {
         public function authenticateUser(UserInterface $user);
     }
 
-    class UserAuthentication implements LoginInterface {
+    class UserAuthentication implements LoginInterface 
+    {
+        public function authenticateUser(UserInterface $user) 
+        {
+            // logic here
+        }
+    }
+
+    class ThirdPartyUserAuthentication implements LoginInterface 
+    {
         public function authenticateUser(UserInterface $user) {
             // logic here
         }
     }
 
-    class ThirdPartyUserAuthentication implements LoginInterface {
-        public function authenticateUser(UserInterface $user) {
-            // logic here
-        }
-    }
-
-    class LoginService {
-        public function login (LoginInterface $loginService, UserInterface $user) {
+    class LoginService 
+    {
+        public function login (LoginInterface $loginService, UserInterface $user) 
+        {
             $loginService->authenticateUser($user);
         }
     }
